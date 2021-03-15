@@ -1,3 +1,4 @@
+sudo apt install -y firefox
 ### browser-settings-hardened https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-browser-settings-hardened/-/blob/master/firefox/distribution.ini
 sudo bash -c 'cat << EOF >> /usr/lib/firefox/distribution/distribution.ini
 
