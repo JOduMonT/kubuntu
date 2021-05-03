@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
 ## REFRESH SOURCE
-apt update
+sudo apt update
 
 ## INSTALL
 ### by category
@@ -30,7 +30,7 @@ VCS="git"
 Video="obs-studio openshot-qt vlc-plugin-bittorrent"
 Word="aspell-fr"
 
-apt install -y $CrossPlatform $Development $Documentation \
+sudo apt install -y $CrossPlatform $Development $Documentation \
   $Editors $Email $Fonts $GNOME $Graphics $Internet $Java $KDE $Libraries \
   $Meta $MiscGraph $MiscText $Multimedia $Networking \
   $Python $SysAdmin $TeXAuth $Utilities $VCS $Video $Word
