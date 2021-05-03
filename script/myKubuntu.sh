@@ -19,11 +19,11 @@ KDE="dolphin-nextcloud filelight kid3 libreoffice-kde5 soundconverter rsibreak"
 Libraries=""
 Meta=""
 MiscGraph=""
-MiscText=""
+MiscText="qemu-kvm qemu-utils"
 Multimedia=""
-Networking="filezilla iputils-arping iputils-tracepath kleopatra krdc network-manager-openvpn nextcloud-desktop nmapsi4 qbittorrent tor wireshark-qt"
+Networking="bridge-utils filezilla iputils-arping iputils-tracepath kleopatra krdc netcat-openbsd network-manager-openvpn nextcloud-desktop nmapsi4 qbittorrent tor wireshark-qt"
 Python="python3-pip"
-SysAdmin="etckeeper virt-manager"
+SysAdmin="etckeeper libvirt-daemon libvirt-daemon-system virt-manager"
 TeXAuth=""
 Utilities="accountwizard keepass2 krename nagstamon rmlint zstd"
 VCS="git"
@@ -38,7 +38,7 @@ sudo apt install -y $CrossPlatform $Development $Documentation \
 ## PURGE
 ### by category
 Communication="ippusbxd usb-modeswitch usb-modeswitch-data"
-CrossPlatform="cdrdao ntfs-3g qemu-block-extra"
+CrossPlatform="cdrdao ntfs-3g"
 Debug="libc6-dbg"
 Databases="firebird3.0-common firebird3.0-server-core firebird3.0-utils libreoffice-sdbc-firebird"
 Development="snapd qml-module-qtquick-virtualkeyboard"
@@ -59,7 +59,7 @@ MiscText="at-spi2-core libreoffice-wiki-publisher libreoffice-sdbc-mysql libreof
 Multimedia=""
 Networking="akonadiconsole akregator ibverbs-providers netplan.io telnet"
 Python=""
-SysAdmin="bolt libvirt-daemon usb-creator-kde xdg-desktop-portal"
+SysAdmin="bolt usb-creator-kde xdg-desktop-portal"
 TeXAuth="wbritish"
 Utilities="fakeroot os-prober sharutils ubuntu-advantage-tools vim-tiny"
 VCS=""
@@ -83,3 +83,13 @@ sudo apt purge -y akonadi-server akonadi-backend-mysql \
   libreoffice-nlpsolver libreoffice-wiki-publisher \
   qtwayland5
 sudo apt autoremove --purge -y
+
+echo -e '
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-iptables = 0
+net.bridge.bridge-nf-call-arptables = 0' | tee -a /etc/sysctl.conf 
+sysctl -p /etc/sysctl.conf
+
+sudo nmcli con add ifname br0 type bridge con-name br0
+sudo nmcli con add type bridge-slave ifname enp0s31f6 master br0
+sudo nmcli con modify br0 bridge.stp no
