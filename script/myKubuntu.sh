@@ -6,7 +6,7 @@ sudo apt update
 ## INSTALL
 ### by category
 CrossPlatform=""
-Development="kdiff3-qt sqlitebrowser virt-viewer"
+Development="go-mtpfs kdiff3-qt sqlitebrowser virt-viewer"
 Documentation="gimp-help-en"
 Editors="libreoffice"
 Email="thunderbird"
@@ -16,7 +16,7 @@ Graphics="flameshot gimp gimp-plugin-registry inkscape"
 Internet="curl"
 Java="icedtea-netx"
 KDE="dolphin-nextcloud filelight kid3 libreoffice-kde5 soundconverter rsibreak"
-Libraries=""
+Libraries="gvfs-fuse"
 Meta=""
 MiscGraph=""
 MiscText="qemu-kvm qemu-utils"
