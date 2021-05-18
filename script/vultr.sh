@@ -4,7 +4,7 @@ apt list --installed >> installed.origin
 free -h > mem.origin
 
 ## enLIGHTen UBUNTU
-apt purge -y alsa* bolt btrfs* containerd crda cryptsetup* docker docker-engine docker.io dmsetup iw lvm2 lxd* mdadm ntfs-3g open-iscsi sg3* snapd sound-theme* runc telnet thin-provisioning* ubuntu-advantage* wireless* xfsprogs
+apt purge -y alsa* bolt btrfs* containerd crda cryptsetup* docker docker.io dmsetup iw lvm2 lxd* mdadm ntfs-3g open-iscsi sg3* snapd sound-theme* runc telnet thin-provisioning* ubuntu-advantage* wireless* xfsprogs
 apt install -y apt-transport-https ca-certificates curl gnupg intel-microcode lsb-release
 apt autoremove --purge -y
 
