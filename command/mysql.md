@@ -15,7 +15,7 @@
 `mysql> CREATE USER 'USERNAME'@'localhost' IDENTIFIED WITH mysql_native_password BY 'STRONG_PASSWORD';`
 
 ## Drop a user
-`DROP USER USERNAME;`
+`DROP USER 'USERNAME'@'localhost';`
 
 ## Grant all privileges
 `mysql> GRANT ALL PRIVILEGES ON DATABASE_NAME.* TO 'USERNAME'@'localhost';`
