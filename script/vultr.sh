@@ -3,7 +3,7 @@
 apt list --installed >> installed.origin
 free -h > mem.origin
 
-add-apt-repository universe
+add-apt-repository -y universe
 apt update
 
 apt purge -y alsa* bolt btrfs* containerd crda cryptsetup* docker.io dmsetup iw lvm2 lxd* mdadm ntfs-3g open-iscsi sg3* snapd sound-theme* runc telnet thin-provisioning* ubuntu-advantage* wireless* xfsprogs
