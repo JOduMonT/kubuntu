@@ -3,19 +3,22 @@
 ## Connect
 > never past your password
 
-`mysql -uroot -p`
+`$ mysql -u root -p -h localhost`
+
+## Show database
+`mysql> SHOW DATABASES;`
 
 ## Show users
-`SELECT User,Host FROM mysql.user;`
+`mysql> SELECT User,Host FROM mysql.user;`
 
 ## Create a database
-`CREATE DATABASE DATABASE_NAME;`
+`mysql> CREATE DATABASE DATABASE_NAME;`
 
 ## Create a user
 `mysql> CREATE USER 'USERNAME'@'localhost' IDENTIFIED WITH mysql_native_password BY 'STRONG_PASSWORD';`
 
 ## Drop a user
-`DROP USER 'USERNAME'@'localhost';`
+`mysql> DROP USER 'USERNAME'@'localhost';`
 
 ## Grant all privileges
 `mysql> GRANT ALL PRIVILEGES ON DATABASE_NAME.* TO 'USERNAME'@'localhost';`
