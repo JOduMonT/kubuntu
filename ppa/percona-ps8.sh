@@ -1,4 +1,4 @@
-sudo apt install -y gnupg2
+sudo apt install -y gnupg
 wget -O /tmp/percona.deb https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
 sudo dpkg -i /tmp/percona.deb
 sudo percona-release setup ps80
