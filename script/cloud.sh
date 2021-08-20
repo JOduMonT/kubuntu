@@ -6,10 +6,9 @@ deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe mul
 deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse
 deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse" > /etc/apt/sources.list
 
-add-apt-repository -y ppa:cappelikan/ppa
 apt update
 
-apt install -y binutils curl etckeeper make schedtool wget zram-tools
+apt install -y binutils curl etckeeper make schedtool wget
 
 apt purge -y alsa* bolt btrfs* containerd crda cryptsetup* docker.io dmsetup iw lvm2 lxd* mdadm ntfs-3g open-iscsi sg3* snapd sound-theme* runc telnet thin-provisioning* ubuntu-advantage* wireless* xfsprogs
 apt autoremove --purge -y
@@ -53,9 +52,11 @@ wget https://raw.github.com/blackdotsh/curl-speedtest/master/speedtest.sh
 bash speedtest.sh >> netspeed.log
 
 ## HardDrive Test
-dd if=/dev/zero of=/tmp/test1.img bs=1M count=1024 oflag=dsync >> hdwrite.log
-dd if=/dev/zero of=/tmp/test2.img bs=512 count=1000 oflag=dsync >> hdlatency.log
-hdparm -t /dev/sda1 >> hdparam.log
-hdparm -t /dev/vda1 >> hdparam.log
+dd if=/dev/zero of=/tmp/test1.img bs=1M count=1024 oflag=dsync 2>> hdwrite.log
+dd if=/dev/zero of=/tmp/test2.img bs=512 count=1000 oflag=dsync 2>> hdlatency.log
+hdparm -t /dev/${lsblk|grep /$|cut -d" " -f1} >> hdparam.log
+
+#apt install -y apache2-utils
+#ab -n 10000 -k -H "Accept-Encoding: gzip,deflate" -c 100 https://
 
 reboot
