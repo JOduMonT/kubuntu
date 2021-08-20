@@ -24,32 +24,6 @@ sudo dpkg -i /tmp/Ananicy/ananicy-*.deb
 sudo systemctl enable ananicy
 sudo systemctl start ananicy
 
-### ZRAM
-swapoff -a
-sed -i "/sw/d" /etc/fstab
-
-echo 'zram' > /etc/modules-load.d/zram.conf
-echo 'options zram num_devices=1' > /etc/modprobe.d/zram.conf
-echo 'KERNEL=="zram0", ATTR{disksize}="512M",TAG+="systemd"' > /etc/udev/rules.d/99-zram.rules
-echo -e '[Unit]
-Description=Swap with zram
-After=multi-user.target
-
-[Service]
-Type=oneshot 
-RemainAfterExit=true
-ExecStartPre=/sbin/mkswap /dev/zram0
-ExecStart=/sbin/swapon /dev/zram0
-ExecStop=/sbin/swapoff /dev/zram0
-
-[Install]
-WantedBy=multi-user.target
-' > /etc/systemd/system/zram.service
-
-systemctl enable zram
-systemctl start zram
-
-wget -O /usr/lib/systemd/zram-generator.conf https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/raw/master/usr/lib/systemd/zram-generator.conf
 wget -O /usr/lib/sysctl.d/99-sysctl-garuda.conf https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/raw/master/usr/lib/sysctl.d/99-sysctl-garuda.conf
 
 ### NOHANG
