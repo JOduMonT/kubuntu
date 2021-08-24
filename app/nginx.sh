@@ -1,2 +1,1 @@
-sudo add-apt-repository -y ppa:nginx/stable
-sudo apt-get update
+add-apt-repository -y ppa:ondrej/nginx

@@ -1,3 +1,3 @@
-sudo add-apt-repository ppa:pbek/qownnotes
-sudo apt-get update
-sudo apt-get install qownnotes
+sudo add-apt-repository -y ppa:pbek/qownnotes
+sudo apt update
+sudo apt install -y qownnotes
