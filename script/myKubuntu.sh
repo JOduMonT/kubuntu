@@ -4,6 +4,9 @@
 sudo apt update
 
 ## INSTALL
+### extra source (PPA and others)
+APPS="brave codium inkscape libreoffice obs openshot rambox zoom"
+
 ### by category
 CrossPlatform=""
 Development="go-mtpfs kdiff3-qt sqlitebrowser virt-viewer"
@@ -23,7 +26,7 @@ MiscText="qemu-kvm qemu-utils"
 Multimedia=""
 Networking="bridge-utils filezilla iputils-arping iputils-tracepath kleopatra krdc netcat-openbsd network-manager-openvpn nextcloud-desktop nmapsi4 qbittorrent tor wireshark-qt"
 Python="python3-pip"
-SysAdmin="etckeeper libvirt-daemon libvirt-daemon-system virt-manager"
+SysAdmin="bleachbit etckeeper libvirt-daemon libvirt-daemon-system virt-manager"
 TeXAuth=""
 Utilities="accountwizard keepass2 krename rmlint zstd"
 VCS="git"
@@ -34,6 +37,11 @@ sudo apt install -y $CrossPlatform $Development $Documentation \
   $Editors $Email $Fonts $GNOME $Graphics $Internet $Java $KDE $Libraries \
   $Meta $MiscGraph $MiscText $Multimedia $Networking \
   $Python $SysAdmin $TeXAuth $Utilities $VCS $Video $Word
+
+for APP in $APPS
+do
+  curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/$APP.sh| sudo bash
+done
 
 ## PURGE
 ### by category
@@ -94,14 +102,3 @@ sudo sysctl -p /etc/sysctl.conf
 sudo nmcli con add ifname br0 type bridge con-name br0
 sudo nmcli con add type bridge-slave ifname enp0s31f6 master br0
 sudo nmcli con modify br0 bridge.stp no
-
-## ADD PPA + APP (Android-MTP, Brave, Bleachbit, Codium, Inskcape, LibreOffice, OBS, RamBox, Zoom)
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/brave.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/codium.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/inkscape.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/libreoffice.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/obs.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/android-mtp.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/bleachbit.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/rambox.sh| sudo bash
-curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/zoom.sh| sudo bash
