@@ -25,7 +25,7 @@ Networking="bridge-utils filezilla iputils-arping iputils-tracepath kleopatra kr
 Python="python3-pip"
 SysAdmin="etckeeper libvirt-daemon libvirt-daemon-system virt-manager"
 TeXAuth=""
-Utilities="accountwizard keepass2 krename nagstamon rmlint zstd"
+Utilities="accountwizard keepass2 krename rmlint zstd"
 VCS="git"
 Video="obs-studio openshot-qt vlc-plugin-bittorrent"
 Word="aspell-fr"
@@ -87,9 +87,20 @@ sudo apt autoremove --purge -y
 echo -e '
 net.bridge.bridge-nf-call-ip6tables = 0
 net.bridge.bridge-nf-call-iptables = 0
-net.bridge.bridge-nf-call-arptables = 0' | tee -a /etc/sysctl.conf 
-sysctl -p /etc/sysctl.conf
+net.bridge.bridge-nf-call-arptables = 0' | sudo tee -a /etc/sysctl.conf 
+sudo sysctl -p /etc/sysctl.conf
 
 sudo nmcli con add ifname br0 type bridge con-name br0
 sudo nmcli con add type bridge-slave ifname enp0s31f6 master br0
 sudo nmcli con modify br0 bridge.stp no
+
+## ADD PPA + APP (Android-MTP, Brave, Bleachbit, Codium, Inskcape, LibreOffice, OBS, RamBox, Zoom)
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/brave.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/codium.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/inkscape.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/libreoffice.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/obs.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/android-mtp.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/bleachbit.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/rambox.sh| sudo bash
+curl -s https://raw.githubusercontent.com/JOduMonT/Ubuntu/main/app/zoom.sh| sudo bash
