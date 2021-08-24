@@ -84,6 +84,7 @@ sudo apt purge -y akonadi-server akonadi-backend-mysql \
   qtwayland5
 sudo apt autoremove --purge -y
 
+### Bridge for VM (libvirt/KVM)
 echo -e '
 net.bridge.bridge-nf-call-ip6tables = 0
 net.bridge.bridge-nf-call-iptables = 0
