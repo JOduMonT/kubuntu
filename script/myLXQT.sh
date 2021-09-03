@@ -46,7 +46,7 @@ sudo apt purge -y \
   htop \
   im-config* \
   kpartx \
-  libwacom-bin* lximage-qt \
+  libwacom-bin* lxd* lximage-qt \
   mesa-vulkan-drivers* \
   os-prober* \
   thermald \
