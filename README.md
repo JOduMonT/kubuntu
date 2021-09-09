@@ -14,5 +14,5 @@ Nuts and Bolts to configure Ubuntu Desktop
 
 ### Disclaimer
 
-These scripts are tested on Ubuntu LTS only and with KDE.
+These scripts are tested on Ubuntu LTS with KDE and LXQT.
 You are free to review, use, fork and propose change.
