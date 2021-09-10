@@ -5,3 +5,4 @@ add-apt-repository -y ppa:oisf/suricata-stable
 apt-get update
 wget -O /tmp/zentyal_installer.sh https://zentyal.com/zentyal_installer.sh
 bash /tmp/zentyal_installer.sh
+echo "user of the sudo group can authenticate as a Zentyal administrator."
