@@ -14,8 +14,6 @@ apt purge -y alsa* bolt btrfs* containerd crda cryptsetup* docker.io dmsetup iw 
 apt autoremove --purge -y
 apt upgrade -y
 
-apt install -y mainline
-
 ### Ananicy (https://github.com/Nefelim4ag/Ananicy#installation)
 git clone https://github.com/Nefelim4ag/Ananicy.git /tmp/Ananicy
 /tmp/Ananicy/package.sh debian
