@@ -56,5 +56,3 @@ hdparm -t /dev/${lsblk|grep /$|cut -d" " -f1} >> hdparam.log
 
 #apt install -y apache2-utils
 #ab -n 10000 -k -H "Accept-Encoding: gzip,deflate" -c 100 https://
-
-reboot
